@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^7.1.2",
     "bootstrap": "^4.4.1",
     "caniuse-lite": "^1.0.30001251",
+    "graphql": "^15.5.1",
     "graphql-tag": "^2.12.5",
     "jwt-decode": "^2.2.0",
     "react": "^16.13.1",
