@@ -24,22 +24,22 @@ const resolvers = {
             return {token, user}
         },
 
-        login: async(username, password, email) => {
-            const user = await user.findOne({email});
-
-            if(!user) {
-                throw new AuthenticationError('wrong email')
+        login: async (parent, { email, password }) => {
+            const user = await User.findOne({ email });
+          
+            if (!user) {
+              throw new AuthenticationError('Incorrect credentials');
             }
-            
-            const correctPw = await user.isCurrentPassword(password);
-
-            if(!correctPw) {
-                throw new AuthenticationError('wrong password')
+          
+            const correctPw = await user.isCorrectPassword(password);
+          
+            if (!correctPw) {
+              throw new AuthenticationError('Incorrect credentials');
             }
-
-            const token = signToken(user)
-            return {token, user}
-        },
+          
+            const token = signToken(user);
+            return { token, user };
+          },
 
         saveBook: async( parent, args, context) => {
             if (context.user) {

@@ -1,77 +1,77 @@
-import {gql} from '@apollo/client'
+import gql from 'graphql-tag';
 
 export const LOGIN_USER = gql`
-    mutation login($email: String!, $password: String!) {
-    login(email: $email, password: $password) {
-        token
-        user {
-            _id
-            username
-        }
+mutation loginUser($email: String!, $password: String!) {
+  login(email: $email, password: $password) {
+    token
+    user {
+      _id
     }
+  }
 }
 `;
 
 export const ADD_USER = gql`
-    mutation addUser($email: String!, $password: String!, $username: String!) {
-        addUser(email: $email, password: $password, username: $username) {
-            token
-            user {
-                _id
-                username
-                email
-                bookCount
-                savedBooks {
-                    description
-                    title
-                    bookId
-                    image
-                    link
-                    authors    
-                }
-            }
-            token
-        }
+mutation addUser($username: String!, $password: String!, $email: String!) {
+  addUser(username: $username, password: $password, email: $email) {
+    user {
+      _id
+      username
+      email
+      bookCount
+      savedBooks {
+        authors
+        bookId
+        image
+        link
+        title
+        description
+      }
     }
+    token
+  }
+}
 `;
 
 export const SAVE_BOOK = gql`
     mutation saveBook($input: savedBook!) {
-        savedBook (input: $input) {
+    saveBook (input: $input)
+        {
             _id
             username
             email
             bookCount
             savedBooks {
                 # _id
-                description
-                title
                 bookId
+                authors
                 image
                 link
-                authors
-                
+                title
+                description
             }
         }
     }
 `;
 
+
+
 export const REMOVE_BOOK = gql`
     mutation removeBook($bookId: ID!) {
-        removeBook(bookId: $bookId) {
-        _id 
-        username
-        email
-        bookCount {
-            # _id
-            description
-            title
-            bookId
-            image
-            link
-            authors
-            
+        removeBook(bookId:$bookId) {
+            _id
+            username
+            email
+            bookCount
+            savedBooks {
+                # _id
+                bookId
+                authors
+                image
+                link
+                title
+                description
+            }
         }
-    }
 }
 `;
