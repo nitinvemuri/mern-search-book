@@ -5,7 +5,7 @@
   ## Description
   This is an app for searching books. You can create a login and save the books you want to a list. You can go into that list and delete the books from it.
 
-  Here is a link to the app: https://book-search-mern-engine.herokuapp.com/
+  Here is a link to the app: 
 
   ## Table of Contents
   * [Description](#Description)
@@ -29,13 +29,7 @@ https://medium.com/mobile-web-dev/how-to-build-and-deploy-a-react-app-to-github-
   ## License 
   ISC:
   https://opensource.org/licenses/ISC
-  
-
-  Copyright© [2021] [nitinvemuri] 
-
       
-  ## Questions
-  Contact me through email.
 
   **GitHub**: [@nitinvemuri](https://github.com/nitinvemuri)
   
